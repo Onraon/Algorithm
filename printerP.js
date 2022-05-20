@@ -13,3 +13,25 @@ function solution(priorities, location) {
         }
     }
 }
+
+//made by b.j.s code
+const solution = (priorities, location) => {
+  const newPrior = priorities.map((num, index) => ({
+    index,
+    num,
+  }));
+
+  const temp = [];
+
+  while (newPrior.length) {
+    const fNum = newPrior.shift();
+
+    if (fNum.num >= Math.max(...newPrior.map((p) => p.num))) {
+      temp.push(fNum);
+    } else {
+      newPrior.push(fNum);
+    }
+  }
+
+  return temp.indexOf(temp.find((p) => p.index === location)) + 1;
+};
