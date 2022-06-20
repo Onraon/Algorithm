@@ -1,8 +1,8 @@
-function solution(priorities, location) {
+function solution(priorities, location) {//함수 선언
 
-    var ranking = 0;
+    var ranking = 0;//ranking은 0
 
-    while (priorities.length) {
+    while (priorities.length) {//priorities의 길이만큼 반복
         if (priorities[0] < Math.max(...priorities)) {
             if (--location < 0) location = priorities.length - 1;
             priorities.push(priorities.shift())
@@ -14,7 +14,6 @@ function solution(priorities, location) {
     }
 }
 
-//made by b.j.s code
 const solution = (priorities, location) => {
   const newPrior = priorities.map((num, index) => ({
     index,
